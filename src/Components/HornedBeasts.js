@@ -3,8 +3,11 @@ class HornedBeasts extends React.Component {
     render(){
         return(
             <>
-            <div className = 'threeValues'>{this.props.info}</div>
-            </>
+           <h2>{this.props.animalTitle}</h2>
+           <p>{this.props.animalDescription}</p>
+           <img src = {this.props.animalImage} alt={this.props.animalTitle} title={this.props.animalTitle} />
+           
+           </>
         )
     }
 }
