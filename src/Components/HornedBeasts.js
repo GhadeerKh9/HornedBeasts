@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
+
 import Col from "react-bootstrap/Col";
 
 class HornedBeasts extends React.Component {
@@ -16,13 +16,19 @@ class HornedBeasts extends React.Component {
   incrementOfFavorite = () => {
     this.setState({
       favorite: this.state.favorite + 1,
+      
     });
+    this.props.showing()
   };
 
   render() {
     return (
       <Col>
-        <Card onClick={this.incrementOfFavorite} style={{ width: "18rem" }}>
+        <Card
+          onClick={this.incrementOfFavorite }
+          style={{ width: "18rem" }}
+         
+        >
           <Card.Img variant="top" src={this.props.image_url} />
           <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
