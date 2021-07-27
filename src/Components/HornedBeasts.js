@@ -18,6 +18,7 @@ class HornedBeasts extends React.Component {
       favorite: this.state.favorite + 1,
       
     });
+    this.props.displaying(this.props.title, this.props.image_url, this.props.description)
     this.props.showing()
   };
 

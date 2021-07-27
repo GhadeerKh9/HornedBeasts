@@ -13,7 +13,19 @@ class App extends React.Component {
 
     this.state = {
       show: false,
+      title: null,
+        image_url: null,
+        description: null,
+
     };
+  }
+
+  display = (name, url, desc) => {
+    this.setState({
+      title: name,
+      image_url:  url,
+      description: desc,
+    })
   }
 
   handleClose = () => {
@@ -32,9 +44,9 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <Main data={Data} handleShowing = {this.handleShow}/>;
+        <Main data={Data} handleShowing = {this.handleShow} displayCards = {this.display}/>;
         <Footer />
-        <SelectedBeasts hiding = {this.handleClose} modalShow = {this.state.show}/>
+        <SelectedBeasts hiding = {this.handleClose} modalShow = {this.state.show} imageData = {this.state.image_url} titleData = {this.state.title} descriptionData = {this.state.description}/>
       </>
     );
   }
