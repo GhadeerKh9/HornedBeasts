@@ -1,49 +1,39 @@
-import React from 'react'
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 class HornedBeasts extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            favorite : 0
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      favorite: 0,
+    };
+  }
 
-    }
+  incrementOfFavorite = () => {
+    this.setState({
+      favorite: this.state.favorite + 1,
+    });
+  };
 
-    incrementOfFavorite = () => {
-        this.setState({
-            favorite: this.state.favorite + 1
-        })
-    }
+  render() {
+    return (
+      <Col>
+        <Card onClick={this.incrementOfFavorite} style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={this.props.image_url} />
+          <Card.Body>
+            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Text>Description : {this.props.description}</Card.Text>
 
-    render(){
-        return(
-            <div>
-           <Card style={{ width: '18rem' }}>
-  <Card.Img onClick = {this.incrementOfFavorite} variant="top" src={this.props.image_url} />
-  <Card.Body>
-    <Card.Title>{this.props.title}</Card.Title>
-    <Card.Text>
-      Description : {this.state.description}
-      
-    </Card.Text>
-    <Card.Text>
-                        Favourite Times : {this.state.favorite}
-     </Card.Text>
-
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
-           
-           </div>
-        )
-    }
+            <Button variant="primary"> 💛 : {this.state.favorite}</Button>
+          </Card.Body>
+        </Card>
+      </Col>
+    );
+  }
 }
 
 export default HornedBeasts;
-
-
-/* <h2>{this.props.animalTitle}</h2>
-           <p>{this.props.animalDescription}</p>
-           <img src = {this.props.animalImage} alt={this.props.animalTitle} title={this.props.animalTitle} /> */
